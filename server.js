@@ -22,6 +22,10 @@ const pool = new Pool({
   },
 });
 
+app.use((req, res, next) => {
+  console.log(req.method, "Server called");
+  next();
+});
 // ========== Home Page Route ==========
 app.get("/", async (req, res) => {
   try {
