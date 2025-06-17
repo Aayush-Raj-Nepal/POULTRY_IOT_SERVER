@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Poultry IoT Data</title>
+  <style>
+    body { font-family: Arial; padding: 2rem; background: #f9f9f9; }
+    h1 { color: #333; }
+    table { border-collapse: collapse; margin-top: 1rem; width: 100%; max-width: 600px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+    td, th { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #eee; }
+  </style>
+</head>
+<body>
+  <h1>🐔 Live Sensor Reading</h1>
+  <% if (data) { %>
+    <table>
+      <tr><th>Timestamp</th><td><%= new Date(data.timestamp).toLocaleString() %></td></tr>
+      <tr><th>Temperature (°C)</th><td><%= data.temperature %></td></tr>
+      <tr><th>Humidity (%)</th><td><%= data.humidity %></td></tr>
+      <tr><th>NH₃ (ppm)</th><td><%= data.nh3 %></td></tr>
+      <tr><th>Weight (kg)</th><td><%= data.weight %></td></tr>
+      <tr><th>Lux</th><td><%= data.lux %></td></tr>
+      <tr><th>CO₂ (ppm)</th><td><%= data.co2_ppm %></td></tr>
+    </table>
+  <% } else { %>
+    <p>No data found.</p>
+  <% } %>
+</body>
+</html>
