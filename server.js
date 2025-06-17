@@ -46,6 +46,7 @@ app.post("/api/data", async (req, res) => {
   if (deviceSecret !== process.env.DEVICE_SECRET) {
     return res.status(403).json({ error: "Unauthorized device." });
   }
+  console.log(req.body);
 
   const { temperature, humidity, nh3, weight, lux, co2_ppm } = req.body;
   if (
