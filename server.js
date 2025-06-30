@@ -9,13 +9,14 @@ const PORT = process.env.PORT || 3001;
 
 // ======================= Middleware =======================
 // Allows your frontend (e.g., from Vercel or localhost:3000) to make API requests.
-app.use(cors());
-// Allows the server to understand and parse incoming JSON data from the hardware.
-app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.method, "Server called");
   next();
 });
+app.use(cors());
+// Allows the server to understand and parse incoming JSON data from the hardware.
+app.use(express.json());
+
 // ======================= PostgreSQL Connection =======================
 // Creates a connection pool to your Neon database for efficient connection management.
 const pool = new Pool({
