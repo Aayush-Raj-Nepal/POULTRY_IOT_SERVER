@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 // Allows the server to understand and parse incoming JSON data from the hardware.
 app.use(express.json());
-
+app.use((req, res) => {
+  console.log(req.method, "Server called");
+  next();
+});
 // ======================= PostgreSQL Connection =======================
 // Creates a connection pool to your Neon database for efficient connection management.
 const pool = new Pool({
@@ -122,6 +125,7 @@ app.get("/api/dashboard-data", async (req, res) => {
 });
 
 // ======================= API.3 ENDPOINTS FOR WEIGHTS =======================
+//URL: GET /api/weight
 // ======================= API.3 ENDPOINTS FOR WEIGHTS =======================
 
 // This endpoint receives a single, stable weight from the hardware
