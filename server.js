@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 // Allows the server to understand and parse incoming JSON data from the hardware.
 app.use(express.json());
-app.use((req, res) => {
+app.use((req, res, next) => {
   console.log(req.method, "Server called");
   next();
 });
